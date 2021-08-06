@@ -1,0 +1,1271 @@
+{
+    "pipes": [],
+    "interfaces": [],
+    "injectables": [
+        {
+            "name": "DemoDataService",
+            "id": "injectable-DemoDataService-a2446a83209314284ab8e0a4970333f8",
+            "file": "src/app/demo-host/demo-data.service.ts",
+            "properties": [
+                {
+                    "name": "data",
+                    "defaultValue": "new BehaviorSubject({})",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { BehaviorSubject } from 'rxjs';\nimport { Injectable } from '@angular/core';\n\n@Injectable()\nexport class DemoDataService {\n\n  data = new BehaviorSubject({});\n\n  constructor() { }\n\n\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 7
+            },
+            "type": "injectable"
+        },
+        {
+            "name": "RouteDataService",
+            "id": "injectable-RouteDataService-967ae5a75c95688889c1fd1ac852964e",
+            "file": "src/app/route-data.ts",
+            "properties": [
+                {
+                    "name": "comp",
+                    "defaultValue": "new BehaviorSubject<any>(undefined)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "data",
+                    "defaultValue": "new BehaviorSubject<any>(undefined)",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methods": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { BehaviorSubject } from 'rxjs';\nimport { Injectable } from '@angular/core';\n\n@Injectable({\n  providedIn: 'root',\n})\nexport class RouteDataService {\n\n  comp = new BehaviorSubject<any>(undefined);\n  data = new BehaviorSubject<any>(undefined);\n\n  constructor() { }\n\n}",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 10
+            },
+            "type": "injectable"
+        }
+    ],
+    "guards": [
+        {
+            "name": "MyResolver",
+            "id": "injectable-MyResolver-4106bd8e4fc2dfe50c1e60c8e52578b5",
+            "file": "src/app/route-resolver.ts",
+            "properties": [],
+            "methods": [
+                {
+                    "name": "resolve",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "Observable<any>",
+                    "typeParameters": [],
+                    "line": 14,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { ActivatedRoute, Resolve, Router } from \"@angular/router\";\nimport { Inject, Injectable } from \"@angular/core\";\nimport { Observable, of } from \"rxjs\";\n\nimport { HttpClient } from \"@angular/common/http\";\nimport { delay } from 'rxjs/operators'\n\n@Injectable({providedIn: 'root'})\nexport class MyResolver implements Resolve<Boolean> {\n  constructor(\n    private route: ActivatedRoute\n  ) { }\n\n  resolve(): Observable<any> {\n    \n    return of(true).pipe(delay(1000));\n  }\n\n}\n\n",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 9,
+                "jsdoctags": [
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "type": "guard"
+        }
+    ],
+    "interceptors": [],
+    "classes": [],
+    "directives": [
+        {
+            "name": "PageHostDirective",
+            "id": "directive-PageHostDirective-6d0ee94ec38d563edcc027460735d923",
+            "file": "src/app/page-host/page-host.directive.ts",
+            "type": "directive",
+            "description": "",
+            "rawdescription": "\n",
+            "sourceCode": "import { Directive, ViewContainerRef } from '@angular/core';\n\n@Directive({\n  selector: '[compHost]',\n})\nexport class PageHostDirective {\n  constructor(public viewContainerRef: ViewContainerRef) { }\n}\n",
+            "selector": "[compHost]",
+            "providers": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "propertiesClass": [
+                {
+                    "name": "viewContainerRef",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "ViewContainerRef",
+                    "optional": false,
+                    "description": "",
+                    "line": 8,
+                    "modifierKind": [
+                        122
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 7,
+                "jsdoctags": [
+                    {
+                        "name": "viewContainerRef",
+                        "type": "ViewContainerRef",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "components": [
+        {
+            "name": "AppComponent",
+            "id": "component-AppComponent-7e4fe0a0fa9cf7ca3ac5214cc4da7f1c",
+            "file": "src/app/app.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-root",
+            "styleUrls": [],
+            "styles": [],
+            "template": "<router-outlet></router-outlet>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\nimport { PageHostComponent } from './page-host/page-host.component';\nimport { Router } from '@angular/router';\nconst generatedRoutes = '../assets/routes.json';\n\n@Component({\n  selector: 'app-root',\n  template: `\n    <router-outlet></router-outlet>\n  `,\n  styles: []\n})\nexport class AppComponent {\n\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": ""
+        },
+        {
+            "name": "DemoHostComponent",
+            "id": "component-DemoHostComponent-cb0445f84f52a603ff55846cb8aef5f0",
+            "file": "src/app/demo-host/demo-host.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-demo-host",
+            "styleUrls": [
+                "./demo-host.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./demo-host.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 19,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\nimport { ActivatedRoute } from '@angular/router';\nimport { DemoDataService } from './demo-data.service';\nimport { map } from 'rxjs/operators';\n\n@Component({\n  selector: 'app-demo-host',\n  templateUrl: './demo-host.component.html',\n  styleUrls: ['./demo-host.component.scss']\n})\nexport class DemoHostComponent implements OnInit {\n\n  constructor(\n    private route: ActivatedRoute,\n    private dds: DemoDataService\n  ) { }\n\n  ngOnInit() {\n    this.route.params.pipe(\n      // map(params => params.demoName),\n    ).subscribe(demoName => {\n      console.log('demoName', demoName);\n      console.log('this.route.snapshot.data', this.route.snapshot.data);\n      // const theOne = DEMO_COMPONENTS.filter(comp => comp.name === componentName)[0];\n      // this.loadComponent(theOne);\n    })\n  }\n\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./demo-host.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "dds",
+                        "type": "DemoDataService",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 12,
+                "jsdoctags": [
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "dds",
+                        "type": "DemoDataService",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>\ndemo-host works!\n</p>"
+        },
+        {
+            "name": "E2eHostComponent",
+            "id": "component-E2eHostComponent-328ee82751ed9cb8f1f5987f46aafdee",
+            "file": "src/app/e2e-host/e2e-host.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-e2e-host",
+            "styleUrls": [
+                "./e2e-host.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./e2e-host.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-e2e-host',\n  templateUrl: './e2e-host.component.html',\n  styleUrls: ['./e2e-host.component.css']\n})\nexport class E2eHostComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./e2e-host.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>\ne2e-host works!\n</p>"
+        },
+        {
+            "name": "FirstComponent",
+            "id": "component-FirstComponent-121ee03390d46f7119dcf60aeda9ddf6",
+            "file": "src/app/components/first/first.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-first",
+            "styleUrls": [
+                "./first.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./first.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "name",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "testing",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 20,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\n\nJERRY testing\n",
+                    "description": "<p>JERRY testing</p>\n"
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-first',\n  templateUrl: './first.component.html',\n  styleUrls: ['./first.component.scss']\n})\nexport class FirstComponent implements OnInit {\n\n  name = '';\n  color = '';\n\n  constructor() { }\n\n  ngOnInit() {\n  }\n  /**\n   * JERRY testing\n   */\n  testing() {\n\n  }\n\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./first.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div [style.background-color]=\"color\">\n  <p>\n  FIRST works!\n  </p>\n  <h4>Name: {{name}}</h4>\n  <button mat-button>Testing</button>\n</div>"
+        },
+        {
+            "name": "PageHostComponent",
+            "id": "component-PageHostComponent-7ee089af9ba98f4d7391ae32fe65e93a",
+            "file": "src/app/page-host/page-host.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-page-host",
+            "styleUrls": [
+                "./page-host.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./page-host.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "compHost",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "PageHostDirective",
+                    "optional": false,
+                    "description": "",
+                    "line": 18,
+                    "decorators": [
+                        {
+                            "name": "ViewChild",
+                            "stringifiedArguments": "PageHostDirective, {static: true}"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "loadComponent",
+                    "args": [
+                        {
+                            "name": "componentType",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 37,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "componentType",
+                            "type": "any",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 25,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "runTest",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 50,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import * as axe from 'axe-core';\n\nimport { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';\nimport { map, switchMap } from 'rxjs/operators';\n\nimport { ActivatedRoute } from '@angular/router';\nimport { DEMO_COMPONENTS } from './../comps';\nimport { PageHostDirective } from './page-host.directive';\nimport { ThirdComponent } from './../components/third/third.component';\n\n@Component({\n  selector: 'app-page-host',\n  templateUrl: './page-host.component.html',\n  styleUrls: ['./page-host.component.scss']\n})\nexport class PageHostComponent implements OnInit {\n\n  @ViewChild(PageHostDirective, {static: true}) compHost!: PageHostDirective;\n\n  constructor(\n    private componentFactoryResolver: ComponentFactoryResolver,\n    private route: ActivatedRoute\n  ) { }\n\n  ngOnInit() {\n    this.route.params.pipe(\n      map(params => params.compName),\n    ).subscribe(componentName => {\n      const theOne = DEMO_COMPONENTS.filter(comp => comp.name === componentName)[0];\n      this.loadComponent(theOne);\n    })\n    // this.route.url.subscribe(data => console.log('route url', data))\n    // this.route.fragment.subscribe(data => console.log('frag', data))\n    //   console.log('wheres my stuff', this.route.url);\n  }\n\n  loadComponent(componentType: any) {\n    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);\n\n    const viewContainerRef = this.compHost.viewContainerRef;\n    viewContainerRef.clear();\n\n    const componentRef = viewContainerRef.createComponent<any>(componentFactory);\n    // componentRef.instance.data = 'test';\n    Object.assign({name: 'jerry', color: 'purple'}, componentRef.instance);\n    componentRef.instance.name = \"wtf is this shit\"\n    console.log('componentRef', componentRef.instance)\n  }\n\n  runTest() {\n    axe\n    .run()\n    .then(results => {\n      console.log(results)\n      if (results.violations.length) {\n        throw new Error('Accessibility issues found');\n      }\n    })\n    .catch(err => {\n      console.error('Something bad happened:', err.message);\n    });\n  }\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ":host {\n  height: 100%;\n  width: 100%;\n  background: lightcyan;\n  display: block;\n}",
+                    "styleUrl": "./page-host.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [
+                    {
+                        "name": "componentFactoryResolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "line": 18,
+                "jsdoctags": [
+                    {
+                        "name": "componentFactoryResolver",
+                        "type": "ComponentFactoryResolver",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "route",
+                        "type": "ActivatedRoute",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<h1>Component Name Here</h1>\n<button (click)=\"runTest()\">Run</button>\n\n<mat-tab-group>\n  <mat-tab label=\"Playground\"> \n    <ng-template compHost></ng-template> \n  </mat-tab>\n  <mat-tab label=\"API\"> Content 2 </mat-tab>\n  <mat-tab label=\"Accessibility\"> Content 3 </mat-tab>\n  <mat-tab label=\"Internationalization\"> Content 3 </mat-tab>\n  <mat-tab label=\"Testing\"> Content 3 </mat-tab>\n</mat-tab-group>\n\n<ng-template compHost></ng-template>"
+        },
+        {
+            "name": "SecondComponent",
+            "id": "component-SecondComponent-eaef8fe09fff54777214dc91d9dcd436",
+            "file": "src/app/components/second/second.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-second",
+            "styleUrls": [
+                "./second.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./second.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "name",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 15,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-second',\n  templateUrl: './second.component.html',\n  styleUrls: ['./second.component.css']\n})\nexport class SecondComponent implements OnInit {\n\n  name = '';\n  color = '';\n  \n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./second.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 11
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<div [style.background-color]=\"color\">\n  <p>\n  SECOND works!\n  </p>\n  <h4>Name: {{name}}</h4>\n  <button mat-button>Testing</button>\n</div>"
+        },
+        {
+            "name": "ThirdComponent",
+            "id": "component-ThirdComponent-30d7d722c393de852d2a8eda6fde65cf",
+            "file": "src/app/components/third/third.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-third",
+            "styleUrls": [
+                "./third.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./third.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-third',\n  templateUrl: './third.component.html',\n  styleUrls: ['./third.component.css']\n})\nexport class ThirdComponent implements OnInit {\n\n  constructor() { }\n\n  ngOnInit() {\n  }\n\n}",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./third.component.css"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "args": [],
+                "line": 8
+            },
+            "implements": [
+                "OnInit"
+            ],
+            "templateData": "<p>\nthird works!\n</p>"
+        }
+    ],
+    "modules": [
+        {
+            "name": "AppModule",
+            "id": "module-AppModule-8f9c68cb487a602d3952cc8e90886b11",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app.module.ts",
+            "methods": [],
+            "sourceCode": "import { HttpClient, HttpClientModule } from '@angular/common/http';\n\nimport { AppComponent } from './app.component';\nimport { AppRoutingModule } from './app-routing.module';\nimport { BrowserAnimationsModule } from '@angular/platform-browser/animations';\nimport { BrowserModule } from '@angular/platform-browser';\nimport { FirstComponent } from './components/first/first.component';\nimport { MatButtonModule } from '@angular/material/button';\nimport { MatTabsModule } from '@angular/material/tabs';\nimport { MyResolver } from './route-resolver';\nimport { NgModule } from '@angular/core';\nimport { PageHostComponent } from './page-host/page-host.component';\nimport { PageHostDirective } from './page-host/page-host.directive';\nimport { Router } from '@angular/router';\nimport { SecondComponent } from './components/second/second.component';\nimport { ThirdComponent } from './components/third/third.component';\n\nconst generatedRoutes = '../assets/routes.json';\nconst demoComponents = [\n  FirstComponent,\n  SecondComponent,\n  ThirdComponent\n]\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    PageHostComponent,\n    PageHostDirective,\n    FirstComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    BrowserAnimationsModule,\n    HttpClientModule,\n    MatTabsModule,\n    MatButtonModule,\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { \n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        },
+                        {
+                            "name": "FirstComponent"
+                        },
+                        {
+                            "name": "PageHostComponent"
+                        },
+                        {
+                            "name": "PageHostDirective"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "AppRoutingModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": [
+                        {
+                            "name": "AppComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "AppRoutingModule",
+            "id": "module-AppRoutingModule-6de54d354e3157d1ebcfae7667eb81e9",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/app-routing.module.ts",
+            "methods": [],
+            "sourceCode": "import { Router, RouterModule, Routes } from '@angular/router';\n\nimport { DemoHostComponent } from './demo-host/demo-host.component';\nimport { E2eHostComponent } from './e2e-host/e2e-host.component';\nimport { FirstComponent } from './components/first/first.component';\nimport { HttpClient } from '@angular/common/http';\nimport { MyResolver } from './route-resolver';\nimport { NgModule } from '@angular/core';\nimport { PageHostComponent } from './page-host/page-host.component';\nimport { SecondComponent } from './components/second/second.component';\n\nconst routes: Routes = [\n  // { path: 'components', component: PageHostComponent, resolve: { routes: MyResolver }, children: []},\n  { path: 'host/:compName', component: PageHostComponent, children: [\n    // { path: 'overview', component: PageHostComponent },\n    // { path: 'api', component: PageHostComponent },\n    { path: 'demos/:demoName', component: DemoHostComponent, resolve: { data: MyResolver } },\n    { path: 'e2e/:e2eName', component: E2eHostComponent },\n    // { path: '**', redirectTo: 'host/:compName'},\n  ]},\n  // { path: '**', component: PageHostComponent, resolve: { routes: MyResolver } },\n];\n// components/ContentListComponent/e2e/basic\n// components/ContentListComponent/e2e/compact\n\n// components/ContentListComponent/overview\n// components/ContentListComponent/api\n// components/ContentListComponent/demos/features\n// components/ContentListComponent/demos/compact\n\n\n@NgModule({\n  imports: [RouterModule.forRoot(routes)],\n  exports: [RouterModule]\n})\nexport class AppRoutingModule {\n\n  \n  \n}\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": []
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": []
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        }
+    ],
+    "miscellaneous": {
+        "variables": [
+            {
+                "name": "DEMO_COMPONENTS",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/comps.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  FirstComponent,\n  SecondComponent,\n  ThirdComponent\n]"
+            },
+            {
+                "name": "demoComponents",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  FirstComponent,\n  SecondComponent,\n  ThirdComponent\n]"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "FirstConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/first/first.component.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    path: 'jerry',\n    data: {\n      name: 'Jerry',\n      color: 'lightblue'\n    }\n  },\n  {\n    path: 'kasia',\n    data: {\n      name: 'Kasia',\n      color: 'lightcoral'\n    }\n  },\n  {\n    path: 'filip',\n    data: {\n      name: 'filip',\n      color: 'lightgreen'\n    }\n  },\n]"
+            },
+            {
+                "name": "generatedRoutes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.module.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'../assets/routes.json'"
+            },
+            {
+                "name": "generatedRoutes",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/app.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "string",
+                "defaultValue": "'../assets/routes.json'"
+            },
+            {
+                "name": "SecondConfig",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/second/second.component.config.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "[]",
+                "defaultValue": "[\n  {\n    path: 'hallie',\n    data: {\n      name: 'hallie',\n      color: 'lightblue'\n    }\n  },\n  {\n    path: 'zoe',\n    data: {\n      name: 'zoe',\n      color: 'lightcoral'\n    }\n  },\n]"
+            }
+        ],
+        "functions": [],
+        "typealiases": [],
+        "enumerations": [],
+        "groupedVariables": {
+            "src/app/comps.ts": [
+                {
+                    "name": "DEMO_COMPONENTS",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/comps.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  FirstComponent,\n  SecondComponent,\n  ThirdComponent\n]"
+                }
+            ],
+            "src/app/app.module.ts": [
+                {
+                    "name": "demoComponents",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  FirstComponent,\n  SecondComponent,\n  ThirdComponent\n]"
+                },
+                {
+                    "name": "generatedRoutes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.module.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'../assets/routes.json'"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
+                }
+            ],
+            "src/environments/environment.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/app/components/first/first.component.config.ts": [
+                {
+                    "name": "FirstConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/first/first.component.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    path: 'jerry',\n    data: {\n      name: 'Jerry',\n      color: 'lightblue'\n    }\n  },\n  {\n    path: 'kasia',\n    data: {\n      name: 'Kasia',\n      color: 'lightcoral'\n    }\n  },\n  {\n    path: 'filip',\n    data: {\n      name: 'filip',\n      color: 'lightgreen'\n    }\n  },\n]"
+                }
+            ],
+            "src/app/app.component.ts": [
+                {
+                    "name": "generatedRoutes",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/app.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "defaultValue": "'../assets/routes.json'"
+                }
+            ],
+            "src/app/components/second/second.component.config.ts": [
+                {
+                    "name": "SecondConfig",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/second/second.component.config.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "defaultValue": "[\n  {\n    path: 'hallie',\n    data: {\n      name: 'hallie',\n      color: 'lightblue'\n    }\n  },\n  {\n    path: 'zoe',\n    data: {\n      name: 'zoe',\n      color: 'lightcoral'\n    }\n  },\n]"
+                }
+            ]
+        },
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {}
+    },
+    "routes": {
+        "name": "<root>",
+        "kind": "module",
+        "className": "AppModule",
+        "children": [
+            {
+                "name": "routes",
+                "filename": "src/app/app-routing.module.ts",
+                "module": "AppRoutingModule",
+                "children": [
+                    {
+                        "path": "host/:compName",
+                        "component": "PageHostComponent",
+                        "children": [
+                            {
+                                "path": "demos/:demoName",
+                                "component": "DemoHostComponent",
+                                "resolve": {
+                                    "data": "MyResolver"
+                                }
+                            },
+                            {
+                                "path": "e2e/:e2eName",
+                                "component": "E2eHostComponent"
+                            }
+                        ]
+                    }
+                ],
+                "kind": "module"
+            }
+        ]
+    },
+    "coverage": {
+        "count": 0,
+        "status": "low",
+        "files": [
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "AppComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generatedRoutes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "demoComponents",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/app.module.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "generatedRoutes",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/first/first.component.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "FirstConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/first/first.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FirstComponent",
+                "coveragePercent": 16,
+                "coverageCount": "1/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/second/second.component.config.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SecondConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/second/second.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SecondComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/third/third.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ThirdComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/comps.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "DEMO_COMPONENTS",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/demo-host/demo-data.service.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "DemoDataService",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/demo-host/demo-host.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "DemoHostComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/e2e-host/e2e-host.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "E2eHostComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/page-host/page-host.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PageHostComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/page-host/page-host.directive.ts",
+                "type": "directive",
+                "linktype": "directive",
+                "name": "PageHostDirective",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/route-data.ts",
+                "type": "injectable",
+                "linktype": "injectable",
+                "name": "RouteDataService",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/route-resolver.ts",
+                "type": "guard",
+                "linktype": "guard",
+                "name": "MyResolver",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.prod.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/environments/environment.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "environment",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
+    }
+}
