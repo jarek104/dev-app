@@ -33,7 +33,6 @@ export class LazyLoaderService {
           const moduleInstance = elementModuleRef.instance;
           console.log('hi', moduleInstance)
           return 'done';
-          // do something with the module...
         } catch (err) {
           throw err;
         }

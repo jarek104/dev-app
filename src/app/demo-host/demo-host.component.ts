@@ -3,10 +3,13 @@ import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild }
 import { ActivatedRoute } from '@angular/router';
 import { DemoDataService } from './demo-data.service';
 import { DemoRegistryService } from '../demo-registry.service';
+import { HttpClient } from '@angular/common/http';
 import { LazyLoaderService } from '../lazy-loader.service';
+import { MatSidenav } from '@angular/material/sidenav';
 import { PageHostDirective } from '../page-host/page-host.directive';
 import { RegisteredDemoChild } from '../types';
-import { map } from 'rxjs/operators';
+
+const generatedRoutes = '../assets/routes.json';
 
 @Component({
   selector: 'app-demo-host',
@@ -16,15 +19,28 @@ import { map } from 'rxjs/operators';
 export class DemoHostComponent implements OnInit, AfterViewInit {
 
   @ViewChild(PageHostDirective, {static: true}) compHost!: PageHostDirective;
+  @ViewChild(MatSidenav) sidenav?: MatSidenav;
+  opened = false;
+  routes: any[] = [];
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
     private route: ActivatedRoute,
     private demoRegistry: DemoRegistryService,
     private lazyLoaderService: LazyLoaderService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
+    this.http.get(generatedRoutes).subscribe(data => {
+      this.routes = (data as any).routes.map((item: string) => {
+        return {
+          route: `/host/${item}`,
+          label: item.toUpperCase()
+        } as any;
+      });
+      console.log(this.routes)
+    })
   }
   ngAfterViewInit(): void {
     this.route.params.subscribe(params => {
