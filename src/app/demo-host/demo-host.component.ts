@@ -39,7 +39,7 @@ export class DemoHostComponent implements OnInit, AfterViewInit {
     
     this.lazyLoaderService.loadModule(() => {
       return import(`../components/${host}/${host}.module`)
-        .then(m => m.load())
+        .then(m => m.default)
     }
     ).then(_ => {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.demoRegistry.registry.value?.componentType);      

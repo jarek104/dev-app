@@ -1,13 +1,12 @@
 import * as axe from 'axe-core';
 
-import { AfterViewInit, Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { DemoRegistryService } from './../demo-registry.service';
 import { LazyLoaderService } from './../lazy-loader.service';
 import { PageHostDirective } from './page-host.directive';
-import { ThirdComponent } from './../components/third/third.component';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-page-host',
@@ -27,7 +26,6 @@ export class PageHostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
     this.route.params.pipe(
       map(params => params.compName),
     ).subscribe(path => {      
@@ -51,10 +49,6 @@ export class PageHostComponent implements OnInit {
       const componentRef = viewContainerRef.createComponent<any>(componentFactory);
       
     });
-  }
-
-  loadModule() {
-    
   }
 
   runTest() {

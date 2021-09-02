@@ -4,17 +4,13 @@ import { FirstComponent } from './first.component';
 import { FirstConfig } from './first.component.config';
 import { NgModule } from '@angular/core';
 
-export function load() {
-  return FirstModule;
-}
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
   ]
 })
-export class FirstModule {
+export default class FirstModule {
 
   constructor(
     private demoRegistry: DemoRegistryService
