@@ -14,7 +14,7 @@ export default class FirstModule {
 
   constructor(
     private demoRegistry: DemoRegistryService
-  ) {    
+  ) {        
     this.demoRegistry.registerDemo({
       demoLabel: 'First Component',
       componentType: FirstComponent,

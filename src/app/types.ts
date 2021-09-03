@@ -14,5 +14,6 @@ export interface RegisteredDemo {
 export interface RegisteredDemoChild {
   data: any;
   path: string;
+  label: string;
   hidden?: boolean;
 }

@@ -13,12 +13,6 @@ export class DemoRegistryService {
   constructor() { }
 
   registerDemo(demo: RegisteredDemo) {
-    console.log('register', demo);
-    
     this.registry.next(demo);
   }
-
-  // getDemoByUrlPath(path: string): RegisteredDemo {
-  //   return this.registry.filter(demo => demo.path === path)[0];
-  // }
 }

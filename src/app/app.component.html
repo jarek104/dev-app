@@ -1,1 +1,43 @@
-<router-outlet></router-outlet>
+<mat-toolbar>
+  <button mat-icon-button  (click)="sidenav?.toggle()">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span>DevApp 2.0</span>
+ <span class="example-spacer"></span>
+ <button mat-icon-button>
+   <mat-icon>language</mat-icon>
+ </button>
+ <button mat-icon-button>
+   <mat-icon>fullscreen</mat-icon>
+ </button>
+ <button mat-icon-button>
+   <mat-icon>devices</mat-icon>
+ </button>
+ <button mat-icon-button>
+  <mat-icon>swap_horiz</mat-icon>
+  </button>
+ <button mat-icon-button>
+  <mat-icon>color_lens</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="over" [(opened)]="opened">
+    <mat-action-list>
+      <button mat-list-item *ngFor="let item of routes" [routerLink]="item.route"> {{item.label}} - {{item.route}} </button>
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-tab-group>
+      <mat-tab label="Playground"> 
+        <ng-template compHost></ng-template> 
+      </mat-tab>
+      <mat-tab label="API"> Content 2 </mat-tab>
+      <mat-tab label="Accessibility"> Content 3 </mat-tab>
+      <mat-tab label="Internationalization"> Content 3 </mat-tab>
+      <mat-tab label="Testing"> Content 3 </mat-tab>
+    </mat-tab-group>
+    <router-outlet></router-outlet>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

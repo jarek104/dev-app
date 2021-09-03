@@ -1,6 +1,7 @@
 export const SecondConfig = [
   {
     path: 'hallie',
+    label: 'Hallies demo',
     data: {
       name: 'hallie',
       color: 'lightgreen'
@@ -8,6 +9,7 @@ export const SecondConfig = [
   },
   {
     path: 'zoe',
+    label: 'Zoes demo',
     data: {
       name: 'zoe',
       color: 'lightcoral'

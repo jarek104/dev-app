@@ -1,0 +1,13 @@
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  flex-grow: 1;
+}

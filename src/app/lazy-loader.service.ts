@@ -31,7 +31,6 @@ export class LazyLoaderService {
         try {
           const elementModuleRef = moduleFactory.create(this.injector);
           const moduleInstance = elementModuleRef.instance;
-          console.log('hi', moduleInstance)
           return 'done';
         } catch (err) {
           throw err;

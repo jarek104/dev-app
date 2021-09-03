@@ -12,11 +12,5 @@ export class FirstComponent implements OnInit {
 
   ngOnInit() {
   }
-  /**
-   * JERRY testing
-   */
-  testing() {
-
-  }
 
 }

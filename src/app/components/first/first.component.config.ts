@@ -3,6 +3,7 @@ import { RegisteredDemoChild } from "src/app/types";
 export const FirstConfig: RegisteredDemoChild[] = [
   {
     path: 'jerry',
+    label: 'Jerrys demo',
     data: {
       name: 'Jerry',
       color: 'lightblue'
@@ -10,6 +11,7 @@ export const FirstConfig: RegisteredDemoChild[] = [
   },
   {
     path: 'kasia',
+    label: 'Kasias demo',
     data: {
       name: 'Kasia',
       color: 'lightcoral'
@@ -17,6 +19,7 @@ export const FirstConfig: RegisteredDemoChild[] = [
   },
   {
     path: 'filip',
+    label: 'Filips demo',
     data: {
       name: 'filip',
       color: 'lightgreen'
