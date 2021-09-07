@@ -1,8 +1,60 @@
-<mat-toolbar>
+<as-split direction="horizontal" [gutterSize]="6">
+
+  <as-split-area [size]="18" class="flex-container dark-background">
+    <div class="toolbar">
+      <span class="toolbar-title">DevApp 2.0</span>
+      <button mat-icon-button  (click)="leftSidenav?.toggle()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+    </div>
+    <div class="routes-list">
+      <div class="route-link" *ngFor="let item of routes" [routerLink]="item.route" routerLinkActive="route-link__active"> {{item.label}}</div>
+    </div>
+  </as-split-area>
+
+  <as-split-area [size]="64">
+
+    <as-split direction="vertical" [gutterSize]="6">
+      <as-split-area [size]="75" class="flex-container">
+        <mat-tab-group style="height: 200px">
+          <mat-tab label="Playground"> <router-outlet></router-outlet> </mat-tab>
+          <mat-tab label="API"> Content 3 </mat-tab>
+          <mat-tab label="Examples"> Content 3 </mat-tab>
+        </mat-tab-group>
+      </as-split-area>
+
+      <as-split-area [size]="25">
+        <mat-tab-group>
+          <mat-tab label="Controls"> Content 3 </mat-tab>
+          <mat-tab label="Accessibility"> Content 3 </mat-tab>
+          <mat-tab label="I18N"> Content 3 </mat-tab>
+          <mat-tab label="Testing"> Content 3 </mat-tab>
+          <mat-tab label="Issues"> Content 3 </mat-tab>
+        </mat-tab-group>
+      </as-split-area>
+
+    </as-split>
+  </as-split-area>
+
+  <as-split-area [size]="18" class="flex-container dark-background">
+    <div class="toolbar">
+      <button mat-icon-button  (click)="leftSidenav?.toggle()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+     <span class="toolbar-title">Controls</span>
+    </div>
+
+  </as-split-area>
+
+</as-split>  
+
+<!-- <mat-toolbar style="height: 44px; z-index: 2;" class="mat-elevation-z3">
   <button mat-icon-button  (click)="sidenav?.toggle()">
    <mat-icon>menu</mat-icon>
  </button>
  <span>DevApp 2.0</span>
+ <span class="example-spacer"></span>
+ <app-slide-toggle></app-slide-toggle>
  <span class="example-spacer"></span>
  <button mat-icon-button>
    <mat-icon>language</mat-icon>
@@ -20,6 +72,8 @@
   <mat-icon>color_lens</mat-icon>
   </button>
 </mat-toolbar>
+
+
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav mode="over" [(opened)]="opened">
     <mat-action-list>
@@ -28,16 +82,23 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-tab-group>
-      <mat-tab label="Playground"> 
-        <ng-template compHost></ng-template> 
-      </mat-tab>
-      <mat-tab label="API"> Content 2 </mat-tab>
-      <mat-tab label="Accessibility"> Content 3 </mat-tab>
-      <mat-tab label="Internationalization"> Content 3 </mat-tab>
-      <mat-tab label="Testing"> Content 3 </mat-tab>
-    </mat-tab-group>
-    <router-outlet></router-outlet>
+    <as-split direction="vertical">
+
+      <as-split-area [size]="70">
+        <router-outlet></router-outlet>
+      </as-split-area>
+
+      <as-split-area [size]="30">
+        <mat-tab-group style="height: 200px">
+          <mat-tab label="Controls"> Content 3 </mat-tab>
+          <mat-tab label="Accessibility"> Content 3 </mat-tab>
+          <mat-tab label="Internationalization"> Content 3 </mat-tab>
+          <mat-tab label="Testing"> Content 3 </mat-tab>
+          <mat-tab label="Issues"> Content 3 </mat-tab>
+        </mat-tab-group>
+      </as-split-area>
+
+    </as-split>    
     
   </mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container> -->

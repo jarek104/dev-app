@@ -4,10 +4,63 @@
   flex-direction: column;
 }
 
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-background {
+  background: #545B6C;
+  color: #fff;
+}
+
+.toolbar {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  
+  .toolbar-title {
+    padding: 0 8px;
+  }
+}
+
+.routes-list {
+  padding: 16px;
+
+  .route-link {
+    padding: 8px 0;
+    font-size: 18px;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .route-link__active {
+    border-bottom: 2px solid #fff; 
+  }
+}
+
+
+
 .example-spacer {
   flex: 1 1 auto;
 }
 
 .sidenav-container {
   flex-grow: 1;
+}
+
+:host ::ng-deep .mat-tab-header,
+:host ::ng-deep .mat-tab-label {
+  height: 40px !important;
+}
+
+.mat-drawer-content {
+  flex-direction: column;
+  display: flex;
+}
+
+mat-sidenav {
+  width: 250px;
 }

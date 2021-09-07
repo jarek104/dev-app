@@ -14,7 +14,7 @@ const generatedRoutes = '../assets/routes.json';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild(MatSidenav) sidenav?: MatSidenav;
+  @ViewChild(MatSidenav) leftSidenav?: MatSidenav;
   opened = false;
   routes: any[] = [];
 

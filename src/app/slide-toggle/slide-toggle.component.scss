@@ -1,0 +1,74 @@
+:host {
+  font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+}
+
+.switch-bar {
+  // box-shadow: inset 0px 0px 10px 2px #000000;
+  box-shadow: inset 0px 1px 1px -2px rgb(0 0 0 / 20%),
+    inset 0px 1px 1px 0px rgb(0 0 0 / 14%),
+    inset 0px 1px 2px 0px rgb(0 0 0 / 12%);
+  background: #f8f9fd;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px;
+}
+
+.switch-toggle {
+  height: 26px;
+  width: 400px;
+  // padding: 10px 0;
+  position: relative;
+  display: flex;
+}
+
+input:checked + label {
+  color: #fff;
+  // box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+  //   0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+  border-radius: 4px;
+}
+.switch-toggle a {
+  background: #3f51b5;
+  border-radius: 4px;
+  transition: all 0.2s ease-out;
+}
+
+.switch-toggle input {
+  display: none;
+}
+
+.switch-toggle label {
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(14, 14, 14, 0.87);
+  transition: all 0.2s ease-out;
+}
+
+.switch-toggle a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  z-index: 1;
+  height: 100%;
+}
+
+.switch-toggle {
+  label:nth-child(2),
+  label:nth-child(2) ~ label,
+  label:nth-child(2) ~ a {
+    width: 33.33%;
+  }
+  label:nth-child(2) ~ input:checked:nth-child(3) + label ~ a {
+    left: 33.33%;
+  }
+  label:nth-child(2) ~ input:checked + label ~ a {
+    left: 66.66%;
+  }
+}
