@@ -1,10 +1,11 @@
-import { Component, ComponentFactoryResolver, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 import { ActivatedRoute } from '@angular/router';
 import { DemoRegistryService } from './demo-registry.service';
 import { HttpClient } from '@angular/common/http';
 import { LazyLoaderService } from './lazy-loader.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { SplitAreaDirective } from 'angular-split';
 
 const generatedRoutes = '../assets/routes.json';
 
@@ -15,6 +16,7 @@ const generatedRoutes = '../assets/routes.json';
 })
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) leftSidenav?: MatSidenav;
+  @ViewChildren(SplitAreaDirective) areasEl?: QueryList<SplitAreaDirective>
   leftSidenavOpened = true;
   rightSidenavOpened = true;
   bottomDrawerOpened = true;
@@ -36,10 +38,22 @@ export class AppComponent implements OnInit {
   }
 
   toggleLeftDrawer() {
-    this.leftSidenavOpened = !this.leftSidenavOpened;
+    if (this.leftSidenavOpened == false) {
+      this.areasEl!.first.expand();
+      this.leftSidenavOpened = true;
+    } else {
+      this.areasEl!.first.collapse();
+      this.leftSidenavOpened = false;
+    }
   }
   toggleRightDrawer() {
-    this.rightSidenavOpened = !this.rightSidenavOpened;
+    if (this.rightSidenavOpened == false) {
+      this.areasEl!.last.expand();
+      this.rightSidenavOpened = true;
+    } else {
+      this.areasEl!.last.collapse();
+      this.rightSidenavOpened = false;
+    }
   }
   toggleBottomDrawer() {
     this.bottomDrawerOpened = !this.bottomDrawerOpened;

@@ -1,6 +1,6 @@
-<as-split direction="horizontal" [gutterSize]="6">
+<as-split direction="horizontal" [gutterSize]="6" [useTransition]="true" [unit]="'pixel'">
 
-  <as-split-area [size]="18" class="flex-container dark-background" *ngIf="leftSidenavOpened" [order]="0">
+  <as-split-area [size]="250" class="flex-container dark-background" [order]="0">
     <div class="toolbar">
       <span class="toolbar-title">Navigation</span>
       <button mat-icon-button (click)="toggleLeftDrawer()">
@@ -12,7 +12,7 @@
     </div>
   </as-split-area>
 
-  <as-split-area [size]="64" [order]="1">
+  <as-split-area [order]="1">
 
     <as-split direction="vertical" [gutterSize]="6">
       <as-split-area [size]="75" class="flex-container">
@@ -63,7 +63,7 @@
     </as-split>
   </as-split-area>
 
-  <as-split-area [size]="18" class="flex-container dark-background" *ngIf="rightSidenavOpened" [order]="2">
+  <as-split-area [size]="250" class="flex-container dark-background" [order]="2">
     <div class="toolbar">
       <span class="toolbar-title">Controls</span>
       <button mat-icon-button (click)="toggleRightDrawer()">
