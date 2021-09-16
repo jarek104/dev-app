@@ -15,7 +15,9 @@ const generatedRoutes = '../assets/routes.json';
 })
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) leftSidenav?: MatSidenav;
-  opened = false;
+  leftSidenavOpened = true;
+  rightSidenavOpened = true;
+  bottomDrawerOpened = true;
   routes: any[] = [];
 
   constructor(
@@ -31,5 +33,15 @@ export class AppComponent implements OnInit {
         };
       });
     })
+  }
+
+  toggleLeftDrawer() {
+    this.leftSidenavOpened = !this.leftSidenavOpened;
+  }
+  toggleRightDrawer() {
+    this.rightSidenavOpened = !this.rightSidenavOpened;
+  }
+  toggleBottomDrawer() {
+    this.bottomDrawerOpened = !this.bottomDrawerOpened;
   }
 }

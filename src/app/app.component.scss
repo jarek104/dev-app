@@ -41,10 +41,29 @@
   }
 }
 
+.main-title,
+.nav-menu-button,
+.toggles-group {
+  flex-grow: 1;
+  display: flex;
+}
 
+.main-title {
+  justify-content: center;
+}
 
-.example-spacer {
+.toggles-group {
+  justify-content: end;
+}
+
+.spacer {
   flex: 1 1 auto;
+}
+
+.extra-border {
+  border-bottom: 1px solid rgba(0,0,0,.12);
+  height: 40px;
+  // box-sizing: border-box;
 }
 
 .sidenav-container {

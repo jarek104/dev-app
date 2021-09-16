@@ -1,10 +1,10 @@
 <as-split direction="horizontal" [gutterSize]="6">
 
-  <as-split-area [size]="18" class="flex-container dark-background">
+  <as-split-area [size]="18" class="flex-container dark-background" *ngIf="leftSidenavOpened" [order]="0">
     <div class="toolbar">
-      <span class="toolbar-title">DevApp 2.0</span>
-      <button mat-icon-button  (click)="leftSidenav?.toggle()">
-        <mat-icon>chevron_left</mat-icon>
+      <span class="toolbar-title">Navigation</span>
+      <button mat-icon-button (click)="toggleLeftDrawer()">
+        <mat-icon>close</mat-icon>
       </button>
     </div>
     <div class="routes-list">
@@ -12,20 +12,47 @@
     </div>
   </as-split-area>
 
-  <as-split-area [size]="64">
+  <as-split-area [size]="64" [order]="1">
 
     <as-split direction="vertical" [gutterSize]="6">
       <as-split-area [size]="75" class="flex-container">
+        <mat-toolbar>
+          <div class="nav-menu-button">
+            <button mat-icon-button (click)="toggleLeftDrawer()" *ngIf="!leftSidenavOpened">
+              <!-- <mat-icon fontSet="material-icons-outlined">widgets_outline</mat-icon> -->
+              <mat-icon>menu</mat-icon>
+            </button>
+          </div>
+          <div class="main-title">DevApp 2.0</div>
+          <div class="toggles-group">
+            <button mat-icon-button (click)="toggleRightDrawer()" *ngIf="!rightSidenavOpened">
+              <mat-icon>tune</mat-icon>
+            </button>
+            <button mat-icon-button (click)="toggleBottomDrawer()"  *ngIf="!bottomDrawerOpened">
+              <mat-icon fontSet="material-icons-outlined">analytics_outline</mat-icon>
+            </button>
+            <button mat-icon-button routerLink="./">
+              <mat-icon>open_in_new</mat-icon>
+            </button>
+          </div>
+        </mat-toolbar>
+
         <mat-tab-group style="height: 200px">
-          <mat-tab label="Playground"> <router-outlet></router-outlet> </mat-tab>
+          <mat-tab label="Playground"> 
+            <router-outlet></router-outlet> 
+          </mat-tab>
           <mat-tab label="API"> Content 3 </mat-tab>
           <mat-tab label="Examples"> Content 3 </mat-tab>
         </mat-tab-group>
       </as-split-area>
 
-      <as-split-area [size]="25">
+      <as-split-area [size]="25" *ngIf="bottomDrawerOpened">
+        <div class="button-row extra-border" style="float:right">
+          <button mat-icon-button (click)="toggleBottomDrawer()" >
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
         <mat-tab-group>
-          <mat-tab label="Controls"> Content 3 </mat-tab>
           <mat-tab label="Accessibility"> Content 3 </mat-tab>
           <mat-tab label="I18N"> Content 3 </mat-tab>
           <mat-tab label="Testing"> Content 3 </mat-tab>
@@ -36,12 +63,12 @@
     </as-split>
   </as-split-area>
 
-  <as-split-area [size]="18" class="flex-container dark-background">
+  <as-split-area [size]="18" class="flex-container dark-background" *ngIf="rightSidenavOpened" [order]="2">
     <div class="toolbar">
-      <button mat-icon-button  (click)="leftSidenav?.toggle()">
-        <mat-icon>chevron_right</mat-icon>
+      <span class="toolbar-title">Controls</span>
+      <button mat-icon-button (click)="toggleRightDrawer()">
+        <mat-icon>close</mat-icon>
       </button>
-     <span class="toolbar-title">Controls</span>
     </div>
 
   </as-split-area>
